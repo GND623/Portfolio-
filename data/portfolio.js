@@ -16,7 +16,7 @@ window.PORTFOLIO = {
     ],
     "languages": "雅思 6.0 · 英语四级 · 基础日语",
     "email": "gnd11111@126.com",
-    "heroImage": "assets/fashion/image-002.jpg",
+    "heroImage": "assets/fashion/image-001.jpg",
     "heroAlt": "黑红色服装系列的三套成衣合影",
     "heroCaption": "服装系列 / 成衣展示",
     "footer": "服装、图像与视觉表达。"
@@ -32,15 +32,15 @@ window.PORTFOLIO = {
       "images": [
         {
           "src": "assets/fashion/image-000.jpg",
-          "alt": "四套黑红色成衣展示"
+          "alt": "黑红色系列成衣展示"
         },
         {
           "src": "assets/fashion/image-001.jpg",
-          "alt": "黑红灰系列服装效果图"
+          "alt": "三套成衣合影"
         },
         {
           "src": "assets/fashion/image-002.jpg",
-          "alt": "三套成衣合影"
+          "alt": "黑红灰系列服装效果图"
         }
       ]
     },

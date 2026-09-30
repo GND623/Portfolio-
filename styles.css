@@ -48,7 +48,7 @@ h1 span { display: block; font-family: var(--sans); font-size: clamp(1.55rem, 2.
 .text-link:hover span { transform: translate(2px, 2px); }
 .hero-link { margin-top: 34px; }
 .hero-figure { align-self: center; }
-.hero-figure img { width: 100%; height: auto; aspect-ratio: 1396 / 984; object-fit: contain; background: #62625f; }
+.hero-figure img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; background: #62625f; }
 .hero-figure figcaption { display: flex; justify-content: space-between; gap: 16px; margin-top: 13px; font-size: .75rem; color: var(--muted); }
 .figure-index { letter-spacing: .05em; white-space: nowrap; }
 .profile-details { display: grid; grid-template-columns: .55fr 1.18fr 1.1fr 1.15fr; gap: 36px; padding-top: 34px; padding-bottom: 48px; border-top: 1px solid var(--line); }
