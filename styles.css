@@ -47,8 +47,8 @@ h1 span { display: block; font-family: var(--sans); font-size: clamp(1.55rem, 2.
 .text-link span { font-size: 1.25rem; line-height: 1; transition: transform .2s; }
 .text-link:hover span { transform: translate(2px, 2px); }
 .hero-link { margin-top: 34px; }
-.hero-figure { align-self: center; }
-.hero-figure img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; background: #62625f; }
+.hero-figure { align-self: center; justify-self: center; width: min(100%,390px); }
+.hero-figure img { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: contain; background: #eee; }
 .hero-figure figcaption { display: flex; justify-content: space-between; gap: 16px; margin-top: 13px; font-size: .75rem; color: var(--muted); }
 .figure-index { letter-spacing: .05em; white-space: nowrap; }
 .profile-details { display: grid; grid-template-columns: .55fr 1.18fr 1.1fr 1.15fr; gap: 36px; padding-top: 34px; padding-bottom: 48px; border-top: 1px solid var(--line); }
@@ -87,7 +87,7 @@ h1 span { display: block; font-family: var(--sans); font-size: clamp(1.55rem, 2.
 .subsection-heading { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding-bottom: 17px; border-bottom: 1px solid var(--line); margin-bottom: 25px; }
 .subsection-heading h3 { font-size: 1.125rem; font-weight: 400; }
 .subsection-heading p { font-size: .75rem; letter-spacing: .12em; color: var(--muted); }
-.illustration-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 24px; }
+.illustration-grid { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 24px; }
 .illustration-grid .work-visual { aspect-ratio: 1084 / 1536; background: var(--white); }
 .illustration-grid .work-caption { gap: 10px; }
 .graphic-heading { margin-top: 66px; }
@@ -125,7 +125,7 @@ h1 span { display: block; font-family: var(--sans); font-size: clamp(1.55rem, 2.
   .discipline { margin-top: 26px; }
   .profile-details { grid-template-columns: 1fr 1fr 1fr; gap: 26px; }
   .profile-label { display: none; }
-  .illustration-grid { gap: 18px; }
+  .illustration-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 26px 18px; }
   .figure-index { display: none; }
 }
 @media (max-width:760px) {

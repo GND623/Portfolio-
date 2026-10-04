@@ -16,9 +16,9 @@ window.PORTFOLIO = {
     ],
     "languages": "雅思 6.0 · 英语四级 · 基础日语",
     "email": "gnd11111@126.com",
-    "heroImage": "assets/fashion/image-001.jpg",
-    "heroAlt": "黑红色服装系列的三套成衣合影",
-    "heroCaption": "服装系列 / 成衣展示",
+    "heroImage": "assets/profile/li-sitong-portrait.webp",
+    "heroAlt": "李思彤个人照片，身穿黑白搭配与拼接半裙",
+    "heroCaption": "李思彤 / 个人照片",
     "footer": "服装、图像与视觉表达。"
   },
   "projects": [
@@ -41,6 +41,10 @@ window.PORTFOLIO = {
         {
           "src": "assets/fashion/image-002.jpg",
           "alt": "黑红灰系列服装效果图"
+        },
+        {
+          "src": "assets/fashion/backstage-5997.jpg",
+          "alt": "黑红色系列三套成衣的后台合影"
         }
       ]
     },
@@ -48,10 +52,14 @@ window.PORTFOLIO = {
       "id": "silhouette",
       "category": "fashion",
       "title": "廓形与设计表达",
-      "subtitle": "效果图 / 结构",
-      "description": "围绕服装的体积、线条与结构进行视觉推敲，收录服装效果图与纸样排料图。",
+      "subtitle": "灵感拼贴 / 效果图 / 结构",
+      "description": "通过服装参考图像拼贴、效果图与纸样排料图，观察廓形、比例和结构的关系。",
       "cover": "assets/fashion/image-005.jpg",
       "images": [
+        {
+          "src": "assets/fashion/silhouette-references-5521.webp",
+          "alt": "服装廓形、剪裁与造型的参考图像拼贴"
+        },
         {
           "src": "assets/fashion/image-005.jpg",
           "alt": "五组不同廓形的服装效果图"
@@ -70,6 +78,10 @@ window.PORTFOLIO = {
       "description": "从自然形态、图像与物件中提取元素，逐步发展为局部结构与服装草图。",
       "cover": "assets/fashion/image-006.jpg",
       "images": [
+        {
+          "src": "assets/fashion/concept-collage-5529.webp",
+          "alt": "面具、古典图像、色彩与手绘元素的灵感拼贴"
+        },
         {
           "src": "assets/fashion/image-006.jpg",
           "alt": "叶片、花瓣与束腰结构灵感草图"
@@ -127,6 +139,20 @@ window.PORTFOLIO = {
         {
           "src": "assets/art/6232.jpg",
           "alt": "蓝色背景上的人物表情绘画"
+        }
+      ]
+    },
+    {
+      "id": "portrait-pink",
+      "category": "illustration",
+      "title": "人物绘画 03",
+      "subtitle": "数字绘画",
+      "description": "以粉色头发、暖色光影与烛光为主要视觉元素的人物绘画。",
+      "cover": "assets/art/portrait-pink-5508.webp",
+      "images": [
+        {
+          "src": "assets/art/portrait-pink-5508.webp",
+          "alt": "粉发人物、剪刀与烛光的数字绘画"
         }
       ]
     },
@@ -201,15 +227,29 @@ window.PORTFOLIO = {
       ]
     },
     {
+      "id": "body-digital-collage",
+      "category": "graphic",
+      "title": "身体与数字图像",
+      "subtitle": "图像拼贴 / 视觉实验",
+      "description": "将骨骼、人物模型与城市图像并置，以蓝紫与粉色构成数字质感的视觉拼贴。",
+      "cover": "assets/art/digital-body-5924.webp",
+      "images": [
+        {
+          "src": "assets/art/digital-body-5924.webp",
+          "alt": "骨骼、人物模型与蓝紫色城市图像的拼贴"
+        }
+      ]
+    },
+    {
       "id": "body-study",
       "category": "graphic",
       "title": "身体的局部",
       "subtitle": "图像研究 / 拼贴",
       "description": "将身体局部与文字标注并置，形成图像研究页面。",
-      "cover": "assets/art/5927.jpg",
+      "cover": "assets/art/body-study-5465.webp",
       "images": [
         {
-          "src": "assets/art/5927.jpg",
+          "src": "assets/art/body-study-5465.webp",
           "alt": "身体局部、蓝色标记与汉字组成的拼贴"
         }
       ]
@@ -220,10 +260,10 @@ window.PORTFOLIO = {
       "title": "服饰的局部",
       "subtitle": "图像研究 / 拼贴",
       "description": "通过局部提取与文字标注观察绘画中的服饰。",
-      "cover": "assets/art/5928.jpg",
+      "cover": "assets/art/garment-study-5466.webp",
       "images": [
         {
-          "src": "assets/art/5928.jpg",
+          "src": "assets/art/garment-study-5466.webp",
           "alt": "绘画中的服饰局部与汉字标注拼贴"
         }
       ]
