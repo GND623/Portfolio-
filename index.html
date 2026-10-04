@@ -7,11 +7,12 @@
     <meta name="description" content="李思彤的个人作品集，收录服装设计、绘画与平面设计作品。">
     <title>李思彤 LI SITONG — 个人作品集</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f2f2f0'/%3E%3Cpath d='M8 7v18h9M23 7v18' fill='none' stroke='%23222222' stroke-width='2.4'/%3E%3C/svg%3E">
-    <link rel="stylesheet" href="styles.css?v=20261004-1">
+    <link rel="stylesheet" href="styles.css?v=20261004-2">
     <script src="data/portfolio.js?v=20261004-1" defer></script>
-    <script src="app.js" defer></script>
+    <script src="app.js?v=20261004-2" defer></script>
   </head>
   <body>
+    <div id="page-transition" class="motion-layer motion-layer--page is-intro" aria-hidden="true"><span class="motion-panel"></span><span class="motion-panel"></span><span class="motion-panel"></span></div>
     <a class="skip-link" href="#main">跳至主要内容</a>
     <header class="site-header">
       <div class="header-inner">
@@ -26,6 +27,7 @@
 
     <main id="main">
       <section id="about" class="about-section section-anchor" aria-labelledby="name">
+        <div class="section-geometry geometry-about" aria-hidden="true"><span class="geometry-circle"></span><span class="geometry-block"></span></div>
         <div class="hero content-width">
           <div class="hero-copy">
             <p class="eyebrow">PORTFOLIO / 个人作品集</p>
@@ -49,6 +51,7 @@
       </section>
 
       <section id="fashion" class="work-section fashion-section section-anchor" aria-labelledby="fashion-title">
+        <div class="section-geometry geometry-fashion" aria-hidden="true"><span class="geometry-block"></span><span class="geometry-circle"></span></div>
         <div class="content-width">
           <div class="section-heading">
             <div><p class="eyebrow">02 / FASHION DESIGN</p><h2 id="fashion-title">服装作品</h2></div>
@@ -59,6 +62,7 @@
       </section>
 
       <section id="art" class="work-section art-section section-anchor" aria-labelledby="art-title">
+        <div class="section-geometry geometry-art" aria-hidden="true"><span class="geometry-block"></span><span class="geometry-circle"></span></div>
         <div class="content-width">
           <div class="section-heading">
             <div><p class="eyebrow">03 / ART & GRAPHIC DESIGN</p><h2 id="art-title">美术作品</h2></div>
@@ -79,6 +83,7 @@
     </footer>
 
     <dialog id="project-dialog" class="project-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
+      <div id="dialog-transition" class="motion-layer motion-layer--dialog" aria-hidden="true" hidden><span class="motion-panel"></span><span class="motion-panel"></span><span class="motion-panel"></span></div>
       <div class="dialog-header"><p id="dialog-category" class="eyebrow"></p><button type="button" id="close-dialog" class="close-button" aria-label="关闭作品详情">关闭 <span aria-hidden="true">×</span></button></div>
       <div class="dialog-content"><div class="dialog-intro"><div><h2 id="dialog-title"></h2><p id="dialog-subtitle" class="secondary"></p></div><p id="dialog-description"></p></div><div id="dialog-images" class="dialog-images"></div><p class="dialog-end">— END —</p></div>
     </dialog>

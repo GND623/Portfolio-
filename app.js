@@ -23,6 +23,77 @@
   // Restrict user-edited media paths to the local asset folder.
   const asset = (path) => typeof path === "string" && /^assets\/[a-zA-Z0-9_./-]+$/.test(path) && !path.includes("..") ? path : "";
 
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const pageLayer = $("page-transition");
+  const dialogLayer = $("dialog-transition");
+  const canAnimate = () => !reducedMotion.matches && typeof Element.prototype.animate === "function";
+  let navigationSequence = 0;
+  let dialogSequence = 0;
+  let pageAnimations = [];
+  let dialogAnimations = [];
+
+  function animatePanels(layer, from, to, duration) {
+    return [...layer.querySelectorAll(".motion-panel")].map((panel, index) => panel.animate(
+      [{ transform: `translateY(${from}%)` }, { transform: `translateY(${to}%)` }],
+      { duration, delay: index * 35, easing: "cubic-bezier(.76,0,.24,1)", fill: "both" }
+    ));
+  }
+  function hideLayer(layer, animations) {
+    if (layer) {
+      layer.hidden = true;
+      layer.classList.remove("is-active", "is-intro");
+    }
+    animations.forEach(animation => animation.cancel());
+  }
+  // New navigation supersedes any transition still in progress.
+  async function transitionSection(action) {
+    const sequence = ++navigationSequence;
+    pageAnimations.forEach(animation => animation.cancel());
+    if (!pageLayer || !canAnimate()) {
+      hideLayer(pageLayer, pageAnimations);
+      action();
+      return;
+    }
+    pageLayer.classList.remove("is-intro");
+    pageLayer.hidden = false;
+    pageLayer.classList.add("is-active");
+    try {
+      pageAnimations = animatePanels(pageLayer, 102, 0, 260);
+      await Promise.allSettled(pageAnimations.map(animation => animation.finished));
+      if (sequence !== navigationSequence) return;
+      action();
+      pageAnimations.forEach(animation => animation.cancel());
+      pageAnimations = animatePanels(pageLayer, 0, -102, 390);
+      await Promise.allSettled(pageAnimations.map(animation => animation.finished));
+    } finally {
+      if (sequence === navigationSequence) hideLayer(pageLayer, pageAnimations);
+    }
+  }
+  function stopDialogMotion() {
+    ++dialogSequence;
+    hideLayer(dialogLayer, dialogAnimations);
+    dialogAnimations = [];
+  }
+  async function revealDialog() {
+    stopDialogMotion();
+    if (!dialogLayer || !canAnimate()) return;
+    const sequence = dialogSequence;
+    dialogLayer.hidden = false;
+    dialogLayer.classList.add("is-active");
+    try {
+      dialogAnimations = animatePanels(dialogLayer, 0, -102, 440);
+      await Promise.allSettled(dialogAnimations.map(animation => animation.finished));
+    } finally {
+      if (sequence === dialogSequence) hideLayer(dialogLayer, dialogAnimations);
+    }
+  }
+  if (pageLayer) {
+    pageLayer.addEventListener("animationend", event => {
+      if (event.animationName === "intro-layer-end" && !pageLayer.classList.contains("is-active")) hideLayer(pageLayer, []);
+    });
+    if (reducedMotion.matches) hideLayer(pageLayer, []);
+  }
+
   if (profile) {
     text("english-name", profile.englishName);
     text("discipline", profile.discipline);
@@ -75,10 +146,12 @@
     document.body.classList.add("modal-open");
     dialog.showModal();
     dialog.scrollTop = 0;
+    revealDialog();
     $("close-dialog").focus({ preventScroll: true });
   }
   $("close-dialog").addEventListener("click", closeProject);
   dialog.addEventListener("close", () => {
+    stopDialogMotion();
     document.body.classList.remove("modal-open");
     if (activeButton) activeButton.focus({ preventScroll: true });
   });
@@ -142,5 +215,29 @@
   }
   window.addEventListener("scroll", () => { if (!tick) { requestAnimationFrame(updateNavigation); tick = true; } }, { passive: true });
   window.addEventListener("resize", updateNavigation, { passive: true });
+  document.querySelectorAll('a[href="#about"], a[href="#fashion"], a[href="#art"]').forEach(link => {
+    link.addEventListener("click", event => {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      const hash = link.getAttribute("href");
+      const section = $(hash.slice(1));
+      if (!section) return;
+      event.preventDefault();
+      transitionSection(() => {
+        if (window.location.hash !== hash) {
+          try { history.pushState(null, "", hash); }
+          catch { window.location.hash = hash; }
+        }
+        section.scrollIntoView({ behavior: "instant", block: "start" });
+        if (event.detail === 0) {
+          const heading = section.querySelector("h1, h2");
+          if (heading) {
+            heading.setAttribute("tabindex", "-1");
+            heading.focus({ preventScroll: true });
+          }
+        }
+        updateNavigation();
+      });
+    });
+  });
   updateNavigation();
 })();
