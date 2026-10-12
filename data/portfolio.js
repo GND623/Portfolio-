@@ -16,8 +16,8 @@ window.PORTFOLIO = {
     ],
     "languages": "雅思 6.0 · 英语四级 · 基础日语",
     "email": "gnd11111@126.com",
-    "heroImage": "assets/profile/li-sitong-portrait.webp",
-    "heroAlt": "李思彤个人照片，身穿黑白搭配与拼接半裙",
+    "heroImage": "assets/profile/li-sitong-portrait-studio-20261012.webp",
+    "heroAlt": "李思彤个人照片，粉色背景与柔和棚拍光感，身穿黑白搭配与拼接半裙",
     "heroCaption": "李思彤 / 个人照片",
     "footer": "服装、图像与视觉表达。"
   },
